@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Hide everything by default when printing */
+@media print {
+  @page {
+    margin: 0.5cm;
+    size: auto;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    -webkit-print-color-adjust: exact;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  /* Only show the print container and its children */
+  #print-area,
+  #print-area * {
+    visibility: visible;
+  }
+
+  /* Position the print container at the top left */
+  #print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: white;
+  }
+
+  /* Reset layout for print */
+  .no-print {
+    display: none !important;
+  }
+}
